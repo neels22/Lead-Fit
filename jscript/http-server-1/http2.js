@@ -73,6 +73,9 @@ app.put("/",function (req,res) {
 //// remove unhealthy kidneys
 app.delete("/",function (req,res) {
 
+    // checks before any changes
+    // if no bad kidney send 411 status code 
+
     const newkidneys = []
     for (let i = 0; i < user[0].kidneys.length; i++) {
 
