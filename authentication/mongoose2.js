@@ -5,6 +5,7 @@ const mongoose = require("mongoose")
 const app = express()
 app.use(express.json())
 
+// database connection stirng in gitignore 
 const User = mongoose.model('users', {name:String ,email:String,password:String} )
 
 
