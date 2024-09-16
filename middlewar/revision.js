@@ -39,6 +39,45 @@ function agechecker(req,res,next) {
 
 // app.use(agechecker)
 
+
+////////////////////////////
+//////      Request counter
+//////////////////////////
+let requestcount = 0
+
+app.use(function (req,res,next) {
+    requestcount ++
+    next()
+})
+///////////////////////////////
+////// Rate limiter
+/////////////
+let numberofreqperuser = {}
+
+setInterval(()=>{
+    numberofreqperuser = {}
+},1000)
+
+app.use(function (req,res,next) {
+        const userid = req.headers['user-id']
+
+        if (numberofreqperuser[userid]) {
+
+            numberofreqperuser[userid]++
+
+            if (numberofreqperuser[userid] > 5 ) {
+                res.status(404).send('no entry')
+            }else{
+                next()
+            }
+        }
+        else{
+            numberofreqperuser[userid] = 1;
+            next()
+        }
+})
+
+/////////////////////////////////////////
 app.get("/ride1",agechecker,function (req,res) {
     
 
@@ -54,5 +93,24 @@ app.get("/ride2",agechecker,function (req,res) {
         msg:"this is ride 2 and you can have the ride"
     })
 })
+
+app.get("/requestcount",function (req,res) {
+    res.json({
+        msg:requestcount + " total requests"
+    })
+})
+
+///////////////////////////////////////////////
+//////// Error handling middlewares  -- 
+//////////////////////////////////////////////
+// 
+let errorcount = 0
+app.use(function (err,req,res,next) {
+    errorcount++
+    res.status(404).send("this is error ")
+    
+})
+
+
 
 app.listen(3000)
