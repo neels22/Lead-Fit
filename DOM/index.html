@@ -42,6 +42,22 @@
     //     // console.log(element)
     // }
     
+    let timeout;
+    function debouncer() {
+        /// call calcum only if calcum isnt called for 100ms
+        // has to delay the call to calcum function unit it has not been called for 100ms and been called for once
+        // if during this 100ms if debouncer got called then close the timer and start a new timer 
+        // how to cancel a clock???? 
+        // clearTimeout
+
+        clearTimeout(timeout); /// any call that was running beforehand will get clear and new call below will start  
+        /// it only clears running timers 
+
+
+        timeout = setTimeout(function () {
+            calcum()
+        },1000)
+    }
 
 
     async function calcum() {
