@@ -24,18 +24,42 @@
 
 <script>
 
-    function calcum() {
+    //  function calcum() {
         
-        num1 = document.getElementById("firstnum").value 
-        num12 = document.getElementById("secondnum").value 
+    //     num1 = document.getElementById("firstnum").value 
+    //     num12 = document.getElementById("secondnum").value 
+    //     const element=document.getElementById('finalsum')
 
-        const sum = num1 + num12
+    //     /// instead of logic on frontend we hit the backend 
+    //     fetch("http://localhost:3000/sum?a="+a+"&b="+b).then(function(response){
+    //         console.log(response)
+    //     })
 
-        const element=document.getElementById('finalsum')
-        element.innerHTML = parseInt(num1) + parseInt(num12)
-        console.log(element)
-    }
+    //     ////////// this is logic on frontend 
+    //     // const sum = num1 + num12
+
+    //     element.innerHTML = parseInt(num1) + parseInt(num12)
+    //     // console.log(element)
+    // }
     
+
+
+    async function calcum() {
+        a = document.getElementById("firstnum").value 
+        b = document.getElementById("secondnum").value 
+        const element=document.getElementById('finalsum')
+
+        // const response = await fetch("https://sum-server.100xdevs.com/sum?a="+a+"&b="+b)
+        const response = await fetch("http://localhost:3000/sum?a="+a+"&b="+b)
+
+        console.log(response)
+        const ans  = response.text()
+        element.innerHTML = ans
+        console.log(ans)
+        
+    }
+
+
     </script>
 
 
