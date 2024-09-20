@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>todo</title>
+</head>
+<body>
+    
+
+    <script>
+
+        function addtodo() {
+
+            const title= document.getElementById("title").value 
+            const desc = document.getElementById("desc").value
+
+            const original = document.getElementById("container").innerHTML
+        //     document.getElementById("container").innerHTML =original+ `
+            
+        // <div>
+        //     <div>${title}</div>
+        //     <div>${desc}</div>
+        //     <button>mark as done </button>
+        // </div>
+        //     `
+
+            // better way to do the above is using create element and append child
+
+            const outdiv = document.createElement("div") /// creates dom div element not present in dom but logical
+
+            // goal here to create structure in memory 
+
+
+
+            const childiv = document.createElement("div")
+             
+            const titles = document.createElement("div")
+            titles.innerHTML = title
+
+            const descriptions = document.createElement("div")
+            descriptions.innerHTML = desc 
+
+            const but = document.createElement("button")
+            but.innerHTML="mark as done"
+
+            // childiv.innerHTML = original + "<br> </br>" +  title + "<br> </br>" + desc+ "<br> </br>" +childiv2 
+
+            childiv.appendChild(titles)
+            childiv.appendChild(descriptions)
+            childiv.appendChild(but)
+
+            outdiv.appendChild(childiv)
+            document.getElementById("container").appendChild(outdiv)
+
+
+
+
+        }
+
+    </script>
+
+    <div>
+        <input id="title" type="text" placeholder="title"> <br> </div>
+        <input id="desc" type="text" placeholder="desctiption"><br> </div>
+        <button onclick="addtodo()">add todo</button><br> </div>
+    </div>
+
+    <div id="container">
+
+
+    </div>
+
+
+</body>
+</html>
