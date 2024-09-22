@@ -32,10 +32,10 @@ router.post("/courses",adminMiddleware,async(req,res)=>{
     const price = req.body.title
 
    const newcourse = await Course.create({
-        title,
-        description,
-        imageLink,
-        price
+    title:title,
+    description:description,
+    imageLink:imageLink,
+    price:price
 
     })
 
