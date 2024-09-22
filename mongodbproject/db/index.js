@@ -3,7 +3,7 @@
 const { Password } = require("@mui/icons-material")
 const mongoose = require("mongoose")
 
-mongoose.connect("mongodb+srv://new:zoC0r9hs0WkQIPQ8@cluster0.9yali.mongodb.net/")
+mongoose.connect("mongodb+srv://new:zoC0r9hs0WkQIPQ8@cluster0.9yali.mongodb.net/course_project")
 
 
 
