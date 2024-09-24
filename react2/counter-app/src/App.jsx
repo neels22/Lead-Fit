@@ -1,6 +1,8 @@
 
 
 import { useState } from "react"
+
+import { Todo } from "./Button"
  
 // let state = {
 //   count:0
@@ -13,20 +15,8 @@ function App() {
   // defining the initial state 
   // const [count,setCount] = useState(0) // [0,1]
 
-  const [todo,setTodo] =  useState([{
+  const [todo,setTodo] =  useState([])
 
-    title:"go to gym",
-    desc:"from 7 to 9"
-
-
-  },{
-    title:"study dsa",
-    desc:"from 9 to 11"
-  }])
-
-
-
-  
   function addTodo() {
     setTodo([...todo,{
       title:"new todo",
@@ -52,6 +42,7 @@ function App() {
         })
       }
 
+      <DarkNewTodo todo={todo}/>
 
 
     </div>
@@ -74,15 +65,24 @@ function App() {
 // }
 
 //// creating Todo component 
-function Todo(props) {
+
+
+function DarkNewTodo(props) {
+  
 
   return <div>
 
-    <h1>{props.title}</h1>
-    <h2>{props.desc}</h2>
+
+  {props.todo.map(function (todo) {
+    
+    return <div style={{background:"black",color:"white"}}>
+      <Todo title={todo.title} desc={todo.desc}/>
+    </div>
+
+  })}
 
   </div>
-  
+
 }
 
 export default App
