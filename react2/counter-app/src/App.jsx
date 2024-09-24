@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 
-import { Todo } from "./Button"
+import { Todo } from "./Todo"
  
 // let state = {
 //   count:0
