@@ -2,11 +2,13 @@
 const express = require("express")
 const { createTodo, updateTodo } = require("./types") /// destructuring objects 
 const app = express()
-
+const cors = require("cors")
 app.use(express.json())
-
+app.use(cors({
+    
+}))
 const {todo} = require("./db")
-const { describe } = require("node:test")
+
 
 const PORT = 3000
 
