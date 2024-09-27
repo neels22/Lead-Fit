@@ -2,14 +2,6 @@
 
 const zod = require("zod")
 
-// {
-//     title:string,
-//     description:string 
-// }
-
-// {
-//     id:string,
-// }
 
 const createTodo = zod.object(
     {
