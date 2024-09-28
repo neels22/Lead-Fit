@@ -42,7 +42,7 @@ app.post("/todo",async function (req,res) {
 
 app.get("/todos",async function (req,res)   {
 
-// get all the todos using todo.findall iguess
+
 
     const todos = await todo.find({}) /// to get all the todos dont add any arguments
     /// this will return a promise 
