@@ -1,4 +1,5 @@
 import { useState, useContext } from 'react';
+import './App.css';
 import { CountContext } from './context'; // Assuming you have a CountContext in context.js
 
 function App() {

@@ -1,5 +1,7 @@
 import { createContext } from "react";
 
-
-// created a variable context to teleport the variable across components
-export const CountContext = createContext(0);
+// Created a context to share both 'count' and 'setCount' across components
+export const CountContext = createContext({
+  count: 0,       // Default count value
+  setCount: () => {}  // Placeholder function for setCount (to avoid errors if not wrapped in a provider)
+});
