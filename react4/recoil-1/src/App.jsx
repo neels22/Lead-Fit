@@ -8,19 +8,24 @@ function App() {
   
   return (
     <div>
+      <RecoilRoot>
+
         <Count />
+  
+        </RecoilRoot>
+    
     </div>
+
   );
 }
 
 function Count() {
   return (
     <div>
-<RecoilRoot>
 
-      <CountRender />
-      <Button />
-      </RecoilRoot>
+      < CountRender />
+        <Button />
+
 
     </div>
   );
@@ -39,12 +44,19 @@ function CountRender() {
 
 function Button() {
 
-const [ count,setCount] = useRecoilState(countAtom)
+  /// button doesnt not need count but we can make it optimised 
+  // so we dont need count here 
+  // we dont need buttons to re render 
+  console.log("button rerender")
+// const [ count,setCount] = useRecoilState(countAtom)
+
+const setCount = useSetRecoilState(countAtom)
+// we just made this more optimised 
 
   return (
     <div>
-      <button onClick={() => setCount(count + 1)}>Increase</button>
-      <button onClick={() => setCount(count - 1)}>Decrease</button>
+      <button onClick={() => setCount(count => count + 1)}>Increase</button>
+      <button onClick={() => setCount(count => count - 1)}>Decrease</button>
     </div>
   );
 }
