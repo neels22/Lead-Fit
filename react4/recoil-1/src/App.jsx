@@ -55,6 +55,7 @@ const setCount = useSetRecoilState(countAtom)
 
   return (
     <div>
+      {/* this line of setCount is optimised for getting the current value  */}
       <button onClick={() => setCount(count => count + 1)}>Increase</button>
       <button onClick={() => setCount(count => count - 1)}>Decrease</button>
     </div>
