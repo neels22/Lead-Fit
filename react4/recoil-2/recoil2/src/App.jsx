@@ -1,46 +1,50 @@
-import { RecoilRoot, useRecoilState, useRecoilValue } from "recoil"
-import { JobsAtom, MsgATom, networkAtom, NotiATom } from "./atoms"
-
+import { RecoilRoot, useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import { JobsAtom, MsgAtom, networkAtom, NotiAtom, totalNoti } from "./atoms";
 
 function App() {
-
-
-  return(
+  return (
     <div>
       <RecoilRoot>
-      <Nameapp/>
-
+        <NameApp />
       </RecoilRoot>
     </div>
-  )
-
+  );
 }
 
-function Nameapp() {
-  
-  const networkcount = useRecoilValue(networkAtom)
-  const finalval = networkcount >=100 ? "99+":networkcount
+function NameApp() {
+  const networkCount = useRecoilValue(networkAtom);
+  const finalVal = networkCount >= 100 ? "99+" : networkCount;
 
-  const noticount = useRecoilValue(NotiATom)
-  const jobcount = useRecoilValue(JobsAtom)
-  const [msgcount,setMsgCount] = useRecoilState(MsgATom)
-
-
-
+  const notiCount = useRecoilValue(NotiAtom);
+  const jobCount = useRecoilValue(JobsAtom);
+  const [msgCount, setMsgCount] = useRecoilState(MsgAtom);
+  const totalNotifications = useRecoilValue(totalNoti);
 
   return (
     <>
-   <button>Home</button>
+      <nav>
+        <button>Home</button>
+        <button>My Network ({finalVal})</button>
+        <button>Messages ({msgCount})</button>
+        <button>Jobs ({jobCount})</button>
+        <button>Notifications ({notiCount})</button>
+        <button onClick={() => setMsgCount(msgCount + 1)}>Me</button>
+        <button>Total Notifications ({totalNotifications})</button>
+      </nav>
 
-   <button>mynetwork({finalval})</button>
-   <button>msg({msgcount})</button>
-   <button>Jobs({jobcount})</button>
-   <button>Notifications ({noticount})</button>
-
-   <button onClick={()=>{
-    setMsgCount(msgcount+1)
-   }}>Me</button>
+      <ButtonUpdater />
     </>
-  )
+  );
 }
-export default App
+
+function ButtonUpdater() {
+  const setMsgCount = useSetRecoilState(MsgAtom);
+
+  return (
+    <div>
+      <button onClick={() => setMsgCount((count) => count + 1)}>Update Messages</button>
+    </div>
+  );
+}
+
+export default App;
