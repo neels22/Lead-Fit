@@ -1,34 +1,23 @@
 import { useState } from 'react'
 import './App.css'
+import { RevenueCard } from './components/RevenueCard'
 
 function App() {
 
 
   return (
     <>
-      <div className='grid  grid-cols-12'>
 
-        <div className='bg-blue-500 col-span-12 md:col-span-5 '>
-          first 
-        </div>
+    <div className='grid grid-cols-3 gap-2'>
+    <RevenueCard title={"Amount pending"}  orderCount={13} Amount={"123,234.34"} />
+    <RevenueCard title={"Amount pending"}  orderCount={13} Amount={"123,234.34"} />
+    <RevenueCard title={"Amount pending"}  orderCount={13} Amount={"123,234.34"} />
+    </div>
 
-        <div className='bg-red-600 col-span-12 md:col-span-5 md:bg-yellow-400' >
-          second
-        </div>
 
-        <div className='bg-blue-500 col-span-12 md:col-span-5' >
-          third
-        </div>
 
-        <div className='bg-blue-500 col-span-12 md:col-span-5'>
-          third
-        </div>
-        <div className='bg-blue-500 col-span-12 md:col-span-5'>
-          third
-        </div>
 
-        
-      </div>
+
     </>
   )
 }
