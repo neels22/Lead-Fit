@@ -9,4 +9,4 @@ export function InputBox({ label, placeholder, onChange }) {
         />
       </div>
     );
-  }
+  } 

@@ -1,7 +1,10 @@
 import { Heading } from "../components/Heading";
 import { InputBox } from "../components/InputBox";
 
+import { Button } from "../components/Button";
+import { SubHeading } from "../components/SubHeading";
 
+import { BottomWarning } from "../components/BottomWarning";
 export function Signin() {
     function onChange() {
         console.log("hi")
@@ -14,11 +17,18 @@ export function Signin() {
 
             <Heading label={"Sign In"}/>
 
+            <SubHeading label={"This is sign in page"}/> 
 
             <InputBox onChange={onChange} placeholder={"Username"} label={"Your Username"}/>
             <InputBox onChange={onChange} placeholder={"Password"} label={"Your Password"}/>
 
+            <Button label={"Sign In"}/>
 
+            <BottomWarning
+            label={"Don't have an account?"}
+            buttonText={"Sign up"}
+            to={"/signup"}
+          />
         </div>
         </div>
 
