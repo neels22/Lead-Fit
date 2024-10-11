@@ -1,5 +1,5 @@
 import { Button } from "./Button"
-import { InputBox } from "./InputBox"
+
 
 
 export function Users() {
@@ -31,10 +31,10 @@ function User() {
       <div className="flex justify-between m-2 border border-gray-100 items-center">
         <div className="flex items-center gap-3 m-2">
           <div className="rounded-full border border-gray-100 w-12 h-12 flex items-center justify-center bg-gray-200">
-            L
+            I
           </div>
           <div className="flex items-center">
-            <span className="whitespace-nowrap">neel this text goes below the first word fix this</span>
+            <span className="whitespace-nowrap">Indraneel sarode</span>
           </div>
         </div>
   
