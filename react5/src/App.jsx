@@ -2,6 +2,8 @@ import { useState,useEffect } from 'react'
 
 import axios from 'axios';
 
+
+
 function useTodos() {
   const [todos, setTodos] = useState([]);
   const [loading,setLoading] = useState(true)
@@ -21,7 +23,7 @@ function useTodos() {
     fetchTodos();
   }, []);
 
-  return [todos,loading];
+  return [todos,loading]
 }
 
 function App() {
@@ -31,9 +33,7 @@ const [todos,loading] = useTodos();
 
 if (loading) {
   return(
-    <div>
-      loading...
-    </div>
+    <div>loading ...</div>
   )
 }
 
