@@ -17,5 +17,5 @@ export function useMousePointer() {
         window.addEventListener("mousemove",handlemouse)
     },[])
 
-
+    return position
 }
