@@ -1,6 +1,8 @@
 import { useState,useEffect } from 'react'
 
 import axios from 'axios';
+import { useIsOnline } from './hooks/useIsOnline';
+import { useMousePointer } from './hooks/useMousePointer';
 
 
 
@@ -30,6 +32,11 @@ function App() {
 
 const [todos,loading] = useTodos();
 
+const isonline  = useIsOnline()
+
+const mousepointer = useMousePointer()
+
+console.log(isonline)
 
 if (loading) {
   return(
@@ -39,8 +46,11 @@ if (loading) {
 
   return (
     <>
-
+<div>
     {todos.map(todo=> <Todo todo={todo}/>)}
+
+    your mouse pointer is {mousepointer.x } { mousepointer.y}
+    </div>
 
     </>
   );
