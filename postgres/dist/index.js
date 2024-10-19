@@ -99,7 +99,7 @@ function getUserById(id) {
             [id] // Passing id as parameter
             );
             if (result.rows.length > 0) {
-                console.log(`User with ID ${id}:`, result.rows[0]); // Logs the user data
+                console.log(`User with ID ${id}:`, result.rows); // Logs the user data
             }
             else {
                 console.log(`No user found with ID ${id}`);
